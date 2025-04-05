@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="text-center">
+  <h1>{{ post.title }}</h1>
+  <h3 class="my-5 h5">{{post.date|date:'d M Y'}}</h3>
+  <img src="{{post.image.url}}" alt="{{post.title}}" />
+  <div class="mg-4 img-fluid">
+    <p>{{post.content|safe}}</p>
+    <!--truncatechars:100 para mostrar solo cien caracteres-->
+  </div>
+</div>
+
+{% endblock content %}

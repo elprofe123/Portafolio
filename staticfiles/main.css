@@ -1,0 +1,12 @@
+body {
+  background: rgb(24, 24, 24);
+}
+
+.bgdark {
+  background-color: rgb(0, 0, 0);
+}
+
+.card-project:hover{
+  border: 1px solid whitesmoke;
+  cursor: pointer;
+}

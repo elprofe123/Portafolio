@@ -26,8 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_0+vf3154j=6^rky+22e&wtlkgxbd%rl452%1$ekx81njf5rh9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'RENDER' not in os.environ
-
+# DEBUG = 'RENDER' not in os.environ
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'portafolio-5w21.onrender.com',
@@ -96,7 +96,7 @@ WSGI_APPLICATION = 'django_portafolio.wsgi.application'
 #         default='postgresql://postgres:postgres@localhost:5432/mysite',
 #         conn_max_age=600
 #     )
-# } 
+# }
 
 if os.getenv('RENDER') == 'true':  # Si estás en Render
     DATABASES = {
@@ -117,8 +117,6 @@ else:  # Configuración local
             'PORT': '5432',
         }
     }
-
-
 
 
 # Password validation
@@ -167,7 +165,7 @@ if not DEBUG:
 
 MEDIA_ROOT = BASE_DIR / 'media'
 
-#STATICFILES_DIRS = [BASE_DIR / 'static']
+# STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = '/public/'

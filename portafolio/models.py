@@ -9,7 +9,7 @@ class Project(models.Model):
     description = models.CharField(max_length=200)
     image = models.ImageField(upload_to='portafolio/images')
     url = models.URLField(blank=True)
-    url = models.URLField(blank=True)
+    url2 = models.URLField(blank=True)
 
 
     def __str__(self):

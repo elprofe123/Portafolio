@@ -89,13 +89,34 @@ WSGI_APPLICATION = 'django_portafolio.wsgi.application'
         conn_max_age=600
     )
 } """
-DATABASES = {
-    'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
-        conn_max_age=600
-    )
-}
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         # Replace this value with your local database's connection string.
+#         default='postgresql://postgres:postgres@localhost:5432/mysite',
+#         conn_max_age=600
+#     )
+# } 
+
+if os.getenv('RENDER') == 'true':  # Si estás en Render
+    DATABASES = {
+        'default': dj_database_url.config(
+            # Usa el DATABASE_URL proporcionado por Render
+            default=os.getenv('DATABASE_URL'),
+            conn_max_age=600
+        )
+    }
+else:  # Configuración local
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'mysite',  # Nombre de tu base de datos local
+            'USER': 'postgres',  # Usuario local
+            'PASSWORD': 'postgres',  # Contraseña local
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
+
 
 
 

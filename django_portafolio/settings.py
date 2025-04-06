@@ -83,33 +83,21 @@ WSGI_APPLICATION = 'django_portafolio.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
 """ DATABASES = {
     'default': dj_database_url.config(
         default='postgresql://postgres:postgres@localhost/postgres',
         conn_max_age=600
     )
+} """
+DATABASES = {
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        conn_max_age=600
+    )
 }
- """
 
-if os.getenv('ENV') == 'RENDER':  # Detecta si estás en Render
-    DATABASES = {
-        'default': dj_database_url.config(
-            default='postgresql://postgres:postgres@localhost/postgres',
-            conn_max_age=600
-        )
-    }
-else:  # Configuración local
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'postgres',  # Nombre de tu base de datos local
-            'USER': 'postgres',  # Usuario local
-            'PASSWORD': 'postgres',  # Contraseña local
-            'HOST': 'localhost',
-            'PORT': '5432',
-        }
-    }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

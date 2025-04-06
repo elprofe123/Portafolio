@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from email.mime import image
 import os
 from pathlib import Path
-import dj_database_url # type: ignore
+import dj_database_url  # type: ignore
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,7 +30,7 @@ DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS = [
     'portafolio-5w21.onrender.com',
-    '127.0.0.1', 
+    '127.0.0.1',
     'localhost'
 ]
 
@@ -84,13 +84,32 @@ WSGI_APPLICATION = 'django_portafolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
+""" DATABASES = {
     'default': dj_database_url.config(
         default='postgresql://postgres:postgres@localhost/postgres',
         conn_max_age=600
     )
 }
+ """
 
+if os.getenv('ENV') == 'RENDER':  # Detecta si estás en Render
+    DATABASES = {
+        'default': dj_database_url.config(
+            default='postgresql://postgres:postgres@localhost/postgres',
+            conn_max_age=600
+        )
+    }
+else:  # Configuración local
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'postgres',  # Nombre de tu base de datos local
+            'USER': 'postgres',  # Usuario local
+            'PASSWORD': 'postgres',  # Contraseña local
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

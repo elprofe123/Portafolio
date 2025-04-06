@@ -1,0 +1,25 @@
+[1mdiff --git a/blog/urls.py b/blog/urls.py[m
+[1mindex 4ff96b6..72da472 100644[m
+[1m--- a/blog/urls.py[m
+[1m+++ b/blog/urls.py[m
+[36m@@ -1,14 +1,15 @@[m
+[31m-from django.urls import path # type: ignore[m
+[31m-from django.conf.urls.static import static # type: ignore[m
+[32m+[m[32mfrom django.urls import path  # type: ignore[m
+[32m+[m[32mfrom django.conf.urls.static import static  # type: ignore[m
+ from blog import views[m
+[31m-from django_portafolio import settings # type: ignore[m
+[32m+[m[32mfrom django_portafolio import settings  # type: ignore[m
+ [m
+ [m
+[31m-app_name='blog' # para referenciar a todas las urls del blog[m
+[32m+[m[32mapp_name = 'blog'  # para referenciar a todas las urls del blog[m
+ [m
+ urlpatterns = [[m
+     path('', views.posts, name='posts'),[m
+[31m-    path('<int:post_id>/',views.post_detail,name='post_detail'),#<int:post_id>[m
+[32m+[m[32m    path('<int:post_id>/', views.post_detail,[m
+[32m+[m[32m         name='post_detail'),  # <int:post_id>[m
+ ][m
+ [m
+ if settings.DEBUG:[m

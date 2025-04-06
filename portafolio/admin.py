@@ -1,4 +1,4 @@
 from django.contrib import admin # type: ignore
-from .models import Proyect
+from .models import Project
 # Register your models here.
-admin.site.register(Proyect)
+admin.site.register(Project)

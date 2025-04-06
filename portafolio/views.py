@@ -4,10 +4,13 @@ from .models import Project
 
 from django.contrib.auth.models import User # type: ignore
 
-# Cambiar la contraseña del usuario 'profe'
-user = User.objects.get(username='profe')
-user.set_password('rodrigo123')
-user.save()
+# Crear el usuario si no existe
+if not User.objects.filter(username='profe').exists():
+    User.objects.create_superuser(
+        username='profe',
+        email='profe@example.com',
+        password='rodrigo123'
+    )
 
 # Create your views here.
 def home(request):

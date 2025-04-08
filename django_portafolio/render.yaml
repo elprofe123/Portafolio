@@ -1,0 +1,5 @@
+static:
+  - path: /static/
+    source: staticfiles/
+  - path: /media/
+    source: media/

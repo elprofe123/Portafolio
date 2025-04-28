@@ -7,9 +7,8 @@ from django.contrib.auth.models import User # type: ignore
 
 # Código temporal para crear un superusuario
 if not User.objects.filter(username="profe").exists():
-    usuario=User.objects.create_superuser("profe", "profe@example.com", "123")
-    usuario.save()
-    print("Superusuario creado: profe")
+    User.objects.create_superuser("profe", "profe@example.com","rodrigo123")
+   
 
 
 # Create your views here.

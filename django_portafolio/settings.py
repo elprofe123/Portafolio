@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'portafolio'
+    'portafolio',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -182,7 +183,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = ['https://portafolio-5w21.onrender.com']
 
 
-INSTALLED_APPS += ['cloudinary']	
+#INSTALLED_APPS += ['cloudinary']	
 
 # Configuración de Cloudinary
 cloudinary.config = {

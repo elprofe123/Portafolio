@@ -181,7 +181,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = ['https://portafolio-5w21.onrender.com']
 
 
-INSTALLED_APPS += ['cloudinary', 'cloudinary_storage']
+INSTALLED_APPS += ['cloudinary']	
 
 # Configuración de Cloudinary
 cloudinary.config = {

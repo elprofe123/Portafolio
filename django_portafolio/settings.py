@@ -35,7 +35,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'portafolio-5w21.onrender.com',
     '127.0.0.1',
-    'localhost'
+    'localhost',
+    'portafolio-p0t9.onrender.com',
 ]
 
 

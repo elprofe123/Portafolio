@@ -33,7 +33,6 @@ SECRET_KEY = 'django-insecure-_0+vf3154j=6^rky+22e&wtlkgxbd%rl452%1$ekx81njf5rh9
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'portafolio-5w21.onrender.com',
     '127.0.0.1',
     'localhost',
     'portafolio-p0t9.onrender.com',
@@ -52,6 +51,7 @@ INSTALLED_APPS = [
     'blog',
     'portafolio',
     'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -168,12 +168,12 @@ if not DEBUG:
     # and renames the files with unique names for each version to support long-term caching
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-#MEDIA_ROOT = BASE_DIR / 'media'
-
+""" MEDIA_ROOT = BASE_DIR / 'media'
+ 
 # STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-#MEDIA_URL = '/media/'
+""" #MEDIA_URL = '/media/' """
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -186,10 +186,14 @@ CSRF_TRUSTED_ORIGINS = ['https://portafolio-5w21.onrender.com']
 #INSTALLED_APPS += ['cloudinary']	
 
 # Configuración de Cloudinary
-cloudinary.config = {
-    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
-    'API_KEY': config('CLOUDINARY_API_KEY'),
-    'API_SECRET': config('CLOUDINARY_API_SECRET'),
-}
+cloudinary.config(
+    cloud_name=config('CLOUDINARY_CLOUD_NAME'),
+    api_key=config('CLOUDINARY_API_KEY'),
+    api_secret=config('CLOUDINARY_API_SECRET')
+)
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

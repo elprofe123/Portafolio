@@ -28,6 +28,7 @@ urlpatterns = [
     path('blog/', include('blog.urls')),# para incluir las urls de la app de blog
 ]
 
-if settings.DEBUG:
+""" if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT) # poner si o si para no tener problemas con imagenes
+                         document_root=settings.MEDIA_ROOT) # poner si o si para no tener problemas con imagenes
+ """
